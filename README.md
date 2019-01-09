@@ -29,32 +29,31 @@ This function is meant for logging purely informational messages.
 ##### Log
 
 This function is meant for logging a message with a severity indication.
-The severity indication can be picked from the `LogLevel` interface.
+The severity indication can be picked from the constants defined in the interface.
 
 ##### debug
 
 This function is meant for logging information aimed at developers.
 A message must be supplied with a [stack trace](https://en.wikipedia.org/wiki/Stack_trace).
 
-#### PhpUnified\Log\Common\LogLevel
+##### Constants
 
-This interface is serving as an [enumerator](https://en.wikipedia.org/wiki/Enumerated_type) for logging severity.
-It supplies three levels of severity.
+The constants in this class can be used to determine the severity of the log.
 
-##### WARNING
+###### WARNING
 
 A warning is a potential failure in the application.
 Normal operation can continue, but the underlying issue can result in additional issues with a greater severity.
 The user experience most likely didn't get affected.
 
-##### ERROR
+###### ERROR
 
 An error is a significant failure in the application.
 These types of errors should be prioritized.
 Normal operation can continue, but might disrupt again.
 The user experience did get affected.
 
-##### FATAL
+###### FATAL
 
 A fatal(ity) is a complete failure of the application.
 Immediate action should be taken.
@@ -82,7 +81,6 @@ To create an implementation which requires a logger, implement the following sni
 namespace YourOrganization\YourPackage;
 
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\Common\LogLevel;
 
 class YourClass
 {
@@ -109,7 +107,7 @@ class YourClass
     public function myFunction(): void
     {
         //some code
-        $this->logger->log(LogLevel::WARNING, 'Something non-severe happened.');
+        $this->logger->log(LoggerInterface::WARNING, 'Something non-severe happened.');
     }
 }
 ```
@@ -123,7 +121,6 @@ namespace YourOrganization\YourPackage;
 
 use PhpUnified\Log\Common\OptionalLoggingInterface;
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\Common\LogLevel;
 
 class YourClass implements OptionalLoggingInterface
 {
@@ -153,7 +150,7 @@ class YourClass implements OptionalLoggingInterface
     {
         //some code
         if ($this->logger !== null) {
-            $this->logger->log(LogLevel::WARNING, 'Something non-severe happened.');
+            $this->logger->log(LoggerInterface::WARNING, 'Something non-severe happened.');
         }
     }
 }
@@ -179,7 +176,7 @@ Helpful information to recreate a bug can be:
 All of this information can then be transferred to the logs.
 A snippet of this would look like:
 ```php
-$this->logger->log(LogLevel::WARNING, 'Something non-severe happened.');
+$this->logger->log(LoggerInterface::WARNING, 'Something non-severe happened.');
 $this->logger->info(
     'This should be investigated in these conditions:',
     [

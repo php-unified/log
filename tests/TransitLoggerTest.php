@@ -1,9 +1,12 @@
 <?php
+/**
+ * Copyright (C) Jyxon, Inc. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace PhpUnified\Log\Tests;
 
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\Common\LogLevel;
 use PhpUnified\Log\TransitLogger;
 use PHPUnit\Framework\TestCase;
 
@@ -32,7 +35,7 @@ class TransitLoggerTest extends TestCase
 
         $loggerMock->expects(self::once())
             ->method('log')
-            ->with(LogLevel::FATAL, 'Log log');
+            ->with(LoggerInterface::FATAL, 'Log log');
 
         $loggerMock->expects(self::once())
             ->method('debug')
@@ -44,7 +47,7 @@ class TransitLoggerTest extends TestCase
 
         $subject->addLogger($loggerMock);
         $subject->info('Info log');
-        $subject->log(LogLevel::FATAL ,'Log log');
+        $subject->log(LoggerInterface::FATAL ,'Log log');
         $subject->debug('Info log', debug_backtrace());
     }
 }

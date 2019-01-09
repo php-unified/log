@@ -1,9 +1,12 @@
 <?php
+/**
+ * Copyright (C) Jyxon, Inc. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace PhpUnified\Log\Tests;
 
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\Common\LogLevel;
 use PhpUnified\Log\NullLogger;
 use PHPUnit\Framework\TestCase;
 
@@ -28,7 +31,7 @@ class NullLoggerTest extends TestCase
         $this->assertInstanceOf(NullLogger::class, $subject);
 
         $subject->info('Info log');
-        $subject->log(LogLevel::FATAL ,'Log log');
+        $subject->log(LoggerInterface::FATAL ,'Log log');
         $subject->debug('Info log', debug_backtrace());
     }
 }

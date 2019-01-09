@@ -1,9 +1,12 @@
 <?php
+/**
+ * Copyright (C) Jyxon, Inc. All rights reserved.
+ * See LICENSE for license details.
+ */
 
 namespace PhpUnified\Log;
 
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\Common\LogLevel;
 
 /**
  * An implementation of a logger which does not log.
