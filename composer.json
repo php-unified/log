@@ -24,11 +24,11 @@
   "autoload": {
     "psr-4": {
       "PhpUnified\\Log\\": "src/"
-    },
-    "autoload-dev": {
-      "psr-4": {
-        "PhpUnified\\Log\\Tests\\": "tests/"
-      }
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhpUnified\\Log\\Tests\\": "tests/"
     }
   },
   "archive": {
