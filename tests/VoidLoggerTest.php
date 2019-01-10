@@ -7,16 +7,16 @@
 namespace PhpUnified\Log\Tests;
 
 use PhpUnified\Log\Common\LoggerInterface;
-use PhpUnified\Log\NullLogger;
+use PhpUnified\Log\VoidLogger;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \PhpUnified\Log\NullLogger
+ * @coversDefaultClass \PhpUnified\Log\VoidLogger
  */
-class NullLoggerTest extends TestCase
+class VoidLoggerTest extends TestCase
 {
     /**
-     * Covers the entire NullLogger class.
+     * Covers the entire VoidLogger class.
      *
      * @return void
      *
@@ -26,9 +26,9 @@ class NullLoggerTest extends TestCase
      */
     public function testLogger(): void
     {
-        $subject = new NullLogger();
+        $subject = new VoidLogger();
 
-        $this->assertInstanceOf(NullLogger::class, $subject);
+        $this->assertInstanceOf(VoidLogger::class, $subject);
 
         $subject->info('Info log');
         $subject->log(LoggerInterface::FATAL ,'Log log');

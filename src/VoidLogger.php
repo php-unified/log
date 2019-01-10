@@ -11,7 +11,7 @@ use PhpUnified\Log\Common\LoggerInterface;
 /**
  * An implementation of a logger which does not log.
  */
-class NullLogger implements LoggerInterface
+class VoidLogger implements LoggerInterface
 {
     /**
      * Purely informational message logging.
