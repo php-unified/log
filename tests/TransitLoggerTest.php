@@ -47,7 +47,7 @@ class TransitLoggerTest extends TestCase
 
         $subject->addLogger($loggerMock);
         $subject->info('Info log');
-        $subject->log(LoggerInterface::FATAL ,'Log log');
+        $subject->log(LoggerInterface::FATAL, 'Log log');
         $subject->debug('Info log', debug_backtrace());
     }
 }

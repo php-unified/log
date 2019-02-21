@@ -41,7 +41,7 @@ interface LoggerInterface
      * @param string $message The message that needs to be logged.
      * @param array  $state   Information about the state of the application.
      */
-     public function info(string $message, array $state = []): void;
+    public function info(string $message, array $state = []): void;
 
     /**
      * Logs a message by a defined severity.

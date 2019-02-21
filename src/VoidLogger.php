@@ -20,6 +20,8 @@ class VoidLogger implements LoggerInterface
      * @param array  $state   Information about the state of the application.
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function info(string $message, array $state = []): void
     {
@@ -33,6 +35,8 @@ class VoidLogger implements LoggerInterface
      * @param string $message The message that needs to be logged.
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function log(string $level, string $message): void
     {
@@ -46,6 +50,8 @@ class VoidLogger implements LoggerInterface
      * @param array  $trace   The backtrace of what needs to be debugged.
      *
      * @return void
+     *
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function debug(string $message, array $trace = []): void
     {
