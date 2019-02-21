@@ -9,3 +9,8 @@ before_script:
 script:
     - composer validate --strict
     - vendor/bin/phpunit --coverage-text
+    - vendor/bin/phpcs src/ tests/
+
+cache:
+  directories:
+    - $HOME/.composer/cache

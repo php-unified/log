@@ -31,7 +31,7 @@ class VoidLoggerTest extends TestCase
         $this->assertInstanceOf(VoidLogger::class, $subject);
 
         $subject->info('Info log');
-        $subject->log(LoggerInterface::FATAL ,'Log log');
+        $subject->log(LoggerInterface::FATAL, 'Log log');
         $subject->debug('Info log', debug_backtrace());
     }
 }

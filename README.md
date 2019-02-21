@@ -22,11 +22,11 @@ composer require php-unified/log
 This interface provides a standard for implementing loggers into applications.
 It exposes three functions.
 
-##### Info
+##### info
 
 This function is meant for logging purely informational messages.
 
-##### Log
+##### log
 
 This function is meant for logging a message with a severity indication.
 The severity indication can be picked from the constants defined in the interface.
@@ -155,6 +155,14 @@ class YourClass implements OptionalLoggingInterface
     }
 }
 ```
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
 
 ## Tips
 
