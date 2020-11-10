@@ -22,29 +22,26 @@ composer require php-unified/log
 This interface provides a standard for implementing loggers into applications.
 It exposes three functions.
 
-##### info
-
-This function is meant for logging purely informational messages.
-
 ##### log
 
 This function is meant for logging a message with a severity indication.
 The severity indication can be picked from the constants defined in the interface.
 
-##### debug
-
-This function is meant for logging information aimed at developers.
-A message must be supplied with a [stack trace](https://en.wikipedia.org/wiki/Stack_trace).
-
 ##### Constants
 
 The constants in this class can be used to determine the severity of the log.
 
-###### WARNING
+###### EMERGENCY
 
-A warning is a potential failure in the application.
-Normal operation can continue, but the underlying issue can result in additional issues with a greater severity.
-The user experience most likely didn't get affected.
+The system has become unuseable. Multiple components of the system have stopped
+working.
+
+###### FATAL
+
+A fatal(ity) is a complete failure of the application.
+Immediate action should be taken.
+Normal operation most likely can not be continued without action.
+The user experience is completely disrupted.
 
 ###### ERROR
 
@@ -53,12 +50,25 @@ These types of errors should be prioritized.
 Normal operation can continue, but might disrupt again.
 The user experience did get affected.
 
-###### FATAL
+###### WARNING
 
-A fatal(ity) is a complete failure of the application.
-Immediate action should be taken.
-Normal operation most likely can not be continued without action.
-The user experience is completely disrupted.
+A warning is a potential failure in the application.
+Normal operation can continue, but the underlying issue can result in additional issues with a greater severity.
+The user experience most likely didn't get affected.
+
+###### NOTICE
+
+A notice is a minor disruption in the application. Normal operation is
+possible. However the warning can have adverse affects if left untreated.
+
+###### INFO
+
+These logs are meant to supply information about the system. E.g. which
+processes have been run.
+
+###### DEBUG
+
+Logs information meant for developers. E.g. performance statistics.
 
 #### PhpUnified\Log\Common\OptionalLoggingInterface
 
@@ -164,58 +174,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
 
-## Tips
-
-### More, better data
-
-To get the most value out of this implementation it is advised to implement logging in a structured way.
-This can be achieved by keeping track of some additional information within the application.
-Helpful information to recreate a bug can be:
-- Installed version of the application.
-- PHP version controlling the execution of the code.
-- PHP extensions used during execution.
-- Installed packages and their respective versions.
-- Context of the user, which can be filled with some questions:
-- - Is the code accessed through CLI or via a web request?
-- - Where there any parameters set, if so what are they?
-- - Which command or request path is used?
-- - Did the user have any contextual settings (cookies)?
-
-All of this information can then be transferred to the logs.
-A snippet of this would look like:
-```php
-$this->logger->log(LoggerInterface::WARNING, 'Something non-severe happened.');
-$this->logger->info(
-    'This should be investigated in these conditions:',
-    [
-        'system-version' => '1.0.0',
-        'installed-packages' => ['...'],
-        '...'
-    ]
-);
-$this->logger->debug('The non-severe bug happened here:', $myBacktrace);
-```
-
-With this information set, a potential log could look like:
-```
-Warning: Something non-severe happened.
-This should be investigated in these conditions:
-system-version: 1.0.0
-installed-packages:
-  - name: my-package, version: 2.0.0
-  - name: not-my-package, version: 1.2.0
-php-version: 7.2.13
-request-context: web
-request-type: POST
-request-body: etc..
-The non-severe bug happened here:
-    1) /var/my-project/pub/index.php(15): Web->__construct()
-    2) /var/my-project/app/Bootstrap.php(36): Bootstrap->run()
-```
-
 ## MIT License
 
-Copyright (c) 2019 GrizzIT
+Copyright (c) GrizzIT
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

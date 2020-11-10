@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.0.0 - 2020-11-10
+### Added
+- Additional log levels.
+
+### Removed
+- Removed different methods for logging.
+- Support for PHP 7.2.
+
+### Refactor
+- Implemented PSR12 CS.
+
 ## 1.0.3 - 2020-03-05
 ### Changed
 - Changed company name references.
@@ -20,17 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.travis.yml` added composer cache and added PHPCS test.
 - `README.md` added Contributing and Change log additions.
 
-### Deprecated
-- Nothing
-
-### Removed
-- Nothing
-
 ### Fixed
 - Typo's in `README.md`
-
-### Security
-- Nothing
 
 ## 1.0.1 - 2019-01-15
 ### Added
@@ -40,18 +42,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Old name idea from `composer.json`
 
-### Deprecated
-- Nothing
-
-### Removed
-- Nothing
-
-### Fixed
-- Nothing
-
-### Security
-- Nothing
-
 ## 1.0.0 - 2019-01-10
 ### Added
 - `PhpUnified\Log\Common\LoggerInterface` has been created as an interface to standardize loggers
@@ -60,22 +50,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `PhpUnified\Log\TransitLogger` has been created as a basic implementation of the `TransitLoggerInterface`.
 - `PhpUnified\Log\VoidLogger` has been created as a `LoggerInterface` implementation which doesn't actually log anything.
 
-### Changed
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Removed
-- Nothing
-
-### Fixed
-- Nothing
-
-### Security
-- Nothing
-
-[Unreleased]: https://github.com/php-unified/log/compare/1.0.3...HEAD
-[1.0.3]: https://github.com/php-unified/log/compare/1.0.2...1.0.3
-[1.0.2]: https://github.com/php-unified/log/compare/1.0.1...1.0.2
-[1.0.1]: https://github.com/php-unified/log/compare/1.0.0...1.0.1
+## Releases
+- [2.0.0 > Unreleased](https://github.com/php-unified/log/compare/2.0.0...HEAD)
+- [1.0.3 > 2.0.0](https://github.com/php-unified/log/compare/1.0.3...2.0.0)
+- [1.0.2 > 1.0.3](https://github.com/php-unified/log/compare/1.0.2...1.0.3)
+- [1.0.1 > 1.0.2](https://github.com/php-unified/log/compare/1.0.1...1.0.2)
+- [1.0.0 > 1.0.1](https://github.com/php-unified/log/compare/1.0.0...1.0.1)

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
@@ -20,18 +21,12 @@ class VoidLoggerTest extends TestCase
      *
      * @return void
      *
-     * @covers ::info
      * @covers ::log
-     * @covers ::debug
      */
     public function testLogger(): void
     {
         $subject = new VoidLogger();
-
         $this->assertInstanceOf(VoidLogger::class, $subject);
-
-        $subject->info('Info log');
         $subject->log(LoggerInterface::FATAL, 'Log log');
-        $subject->debug('Info log', debug_backtrace());
     }
 }
