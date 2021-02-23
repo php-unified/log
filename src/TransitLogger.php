@@ -20,7 +20,7 @@ class TransitLogger implements TransitLoggerInterface
      *
      * @var LoggerInterface[]
      */
-    private $loggers;
+    private array $loggers;
 
     /**
      * Adds a logger which needs to recieve incoming logs.
